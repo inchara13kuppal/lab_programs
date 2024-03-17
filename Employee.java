@@ -1,34 +1,25 @@
-package week2;
+package emp;
+import java.util.Scanner;
 
-class Employee {
+public class Employee {
+    short empId;
+    public int expYears;
     String empName;
-    int empNo;
-    float salary;
-    String empDesig;
-    byte expYrs;
+    public float salary;
 
-    void setEmployee(String name, int No, float Sal, String Des, byte Ex) {
-        empName = name;
-        empNo = No;
-        salary = Sal;
-        empDesig = Des;
-        expYrs = Ex;
+    public Employee() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter employee number...");
+        empId = Short.parseShort(sc.next());
+        System.out.println("Enter employee Name...");
+        empName = sc.next();
+        System.out.println("Enter employee Gross salary...");
+        salary = Float.parseFloat(sc.next());
+        System.out.println("Enter employee years of experience...");
+        expYears = Integer.parseInt(sc.next());
     }
 
-    void getEmployee() {
-        System.out.println(empName + "\t" + empNo + "\t" + salary + "\t" + empDesig + "\t" + expYrs + "\n");
-    }
-}
-
-class DemoEmployee {
-    public static void main(String args[]) {
-        Employee rahul = new Employee();
-        rahul.setEmployee("Rahul", 128966, 99999.0f, "Project Manager",(byte) 20);
-        System.out.println("empName\tempNo\tsalary\tempDesig\texpYrs\n");
-        rahul.getEmployee();
-        
-        Employee rakesh = new Employee();
-        rakesh.setEmployee("Rakesh", 128969, 98765.4f, "Project lead", (byte) 10);
-        rakesh.getEmployee();
+    public void getEmployee() {
+        System.out.println(empId + "\t" + empName + "\t" + expYears + "\t" + salary);
     }
 }
